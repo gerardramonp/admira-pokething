@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import 'PokemonList.scss';
+import './PokemonList.scss';
 
 function PokemonList({ pokemonList, dispatch }) {
   return <p>List works...</p>;
