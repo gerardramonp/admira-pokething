@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import pokeReducer from "./pokeReducer";
+import { combineReducers } from 'redux';
+import pokeReducer from './pokeReducer';
 
 const rootReducer = combineReducers({ pokeReducer });
 

@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import configureStore from './redux';
+import configureStore from './redux/configureStore';
 
 const store = configureStore();
 

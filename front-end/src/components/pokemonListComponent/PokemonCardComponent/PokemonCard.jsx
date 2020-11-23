@@ -1,5 +1,6 @@
 import React from 'react';
-import './PokemonCard.scss';
+
+import './PokemonCard.css';
 
 function PokemonCard({ pokemonData }) {
   return (
