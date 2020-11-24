@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import requestPokemons from '../../redux/actions/pokeActions';
 import PokemonCard from './PokemonCardComponent/PokemonCard';
 
@@ -34,10 +35,12 @@ function PokemonList({ pokemonList, dispatch }) {
             name, id, types, species, sprites,
           };
           return (
-            <PokemonCard
-              key={name}
-              pokemonData={pokemonData}
-            />
+            <Link to={`/detail/${pokemonData.id}`}>
+              <PokemonCard
+                key={name}
+                pokemonData={pokemonData}
+              />
+            </Link>
           );
         })}
 
