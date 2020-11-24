@@ -41,7 +41,24 @@ function PokemonList({ pokemonList, dispatch }) {
 
   return (
     <>
-      <h1>Admira Pokedex</h1>
+      <div className="title__container">
+        <div className="title__upper">
+          <div className="title__button" />
+          <div className="title__button" />
+        </div>
+        <div className="title__screen">
+          <h1 className="screen__text">Admira Pokedex</h1>
+        </div>
+        <div className="title__bottom">
+          <div className="title__button title__button--big" />
+          <div className="bottom__lines">
+            <div className="lines__item" />
+            <div className="lines__item" />
+            <div className="lines__item" />
+          </div>
+
+        </div>
+      </div>
       <section className="pokemon-list-container">
         {pokemonList?.length ? pokemonListRender : loadingRender}
       </section>

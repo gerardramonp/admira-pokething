@@ -9,3 +9,85 @@
 .link{ 
     text-decoration: none;
 }
+
+.title__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #DEDEDE;
+    width: 30%;
+    max-width: 320px;
+    min-width: 175px;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    padding: 12px 24px;
+    margin: 20px auto;
+}
+
+.title__upper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+}
+
+.title__button{
+    height: 12px;
+    width: 12px;
+    background-color: #FF0000;
+    border: 0.5px solid black;
+    border-radius: 50%;
+    margin: 0px 10%;
+}
+
+.title__screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232323;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.screen__text{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 22px;
+    padding: 12px;
+    margin: 0;
+}
+
+.title__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+}
+
+.title__button--big{
+    height: 22px;
+    width: 22px;
+    margin: 0;
+}
+
+.bottom__lines{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
+    height: 50px;
+}
+
+.lines__item{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .title__container{
+        padding: 6px 12px;
+    }
+}
