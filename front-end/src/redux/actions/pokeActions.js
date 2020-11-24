@@ -26,7 +26,7 @@ export default function loadPokemons() {
     dispatch(setLoading());
     const backEndpoint = '/api/pokemons';
     try {
-      const pokemonList = await axios(backEndpoint);
+      const pokemonList = await axios.get(backEndpoint);
       dispatch(loadPokemonsSuccess(pokemonList.data));
     } catch (error) {
       dispatch(loadPokemonsError(error));
