@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --collect-coverage",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:4200",
