@@ -1,3 +1,8 @@
+/* eslint-disable camelcase */ // <-- for destructuring later
+
+const debug = require('debug')('app:controller');
+const axios = require('axios');
+
 function pokeController(PokeModel) {
   function getPokemons(req, res) {
     const searchQuery = {};
@@ -9,7 +14,31 @@ function pokeController(PokeModel) {
         : res.json(pokemonList)));
   }
 
-  return { getPokemons };
+  async function getPokemonById(req, res) {
+    const { pokemonId } = req.params;
+
+    /* Here I use the pokemon API and not my DB just for you to see
+       other code examples and different testing. */
+    const pokemonDetailEndpoint = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+    try {
+      // Destructuring of response to discard all the info I don't want
+      const {
+        data: {
+          base_experience, forms, game_indices, held_items, is_default,
+          location_area_encounters, order, species, ...data
+        },
+      } = await axios.get(pokemonDetailEndpoint);
+
+      const { sprites: { back_default, front_default } } = data;
+
+      const pokeData = { ...data, sprites: { front_default, back_default } };
+
+      res.json(pokeData);
+    } catch (detailError) {
+      res.send(detailError);
+    }
+  }
+  return { getPokemons, getPokemonById };
 }
 
 module.exports = pokeController;
