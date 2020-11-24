@@ -5,3 +5,7 @@
     flex-wrap: wrap;
     margin: auto;
 }
+
+.link{
+    text-decoration: none;
+}

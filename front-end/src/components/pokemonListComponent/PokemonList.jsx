@@ -27,22 +27,14 @@ function PokemonList({ pokemonList, dispatch }) {
   const pokemonListRender = (
     <div className="pokemon-list">
       {pokemonList?.length
-        && pokemonList.map((currentPokemon) => {
-          const {
-            name, id, types, species, sprites,
-          } = currentPokemon;
-          const pokemonData = {
-            name, id, types, species, sprites,
-          };
-          return (
-            <Link to={`/detail/${pokemonData.id}`}>
-              <PokemonCard
-                key={name}
-                pokemonData={pokemonData}
-              />
-            </Link>
-          );
-        })}
+        && pokemonList.map((currentPokemon) => (
+          <Link to={`/detail/${currentPokemon.id}`} className="link">
+            <PokemonCard
+              key={currentPokemon.name}
+              pokemonData={currentPokemon}
+            />
+          </Link>
+        ))}
 
     </div>
   );
