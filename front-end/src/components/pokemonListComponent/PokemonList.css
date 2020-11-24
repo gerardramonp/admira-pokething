@@ -38,6 +38,7 @@
     border: 0.5px solid black;
     border-radius: 50%;
     margin: 0px 10%;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.25);
 }
 
 .title__screen{
