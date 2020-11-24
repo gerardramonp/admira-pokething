@@ -27,16 +27,17 @@ describe('pokeActions test', () => {
 
       await loadPokemons()(dispatch);
 
-      expect(dispatch).toHaveBeenCalledTimes(2);
+      expect(dispatch.mock.calls[1][0].type).toBe(actionTypes.LOAD_POKEMONS_ERROR);
     });
 
     test('Should dispatch loadPokemonsSuccess when axios returns a pokemon list', async () => {
-      const returnedList = [{ name: 'pikachu', id: 1 }];
-      axios.get.mockReturnValueOnce(Promise.resolve(returnedList));
+      axios.get.mockReturnValueOnce(Promise.resolve('pokemonResults'));
 
       await loadPokemons()(dispatch);
 
-      expect(dispatch.mock.calls[1][0]).toBe(actionTypes.LOAD_POKEMONS);
+      const expectedCall = { pokemonList: undefined, type: 'LOAD_POKEMONS' };
+
+      expect(dispatch.mock.calls[1][0]).toEqual(expectedCall);
     });
   });
 });
