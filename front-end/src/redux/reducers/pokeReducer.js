@@ -20,6 +20,5 @@ export default function pokeReducer(state = {}, action) {
       newState = state;
       break;
   }
-
   return newState;
 }
