@@ -21,8 +21,14 @@
 
 .header__item--left{
     justify-content: flex-start;
-    padding: 0 32px;
     align-items: flex-start;
+}
+
+.header__decorators{
+    display: flex;
+    flex-direction: row;
+    padding: 0 48px;
+
 }
 
 .pokedex__buttons{
@@ -48,4 +54,37 @@
 
 .button--green{
     background-color: #5EAF6B;
+}
+
+.mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .desktop{
+        display: none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .header__item{
+        width: 50%;
+    }
+
+    .header__logo{
+       height: 40px;
+    }
+
+    .header__decorators{
+        padding: 8px;
+    }
+
+    .button{
+        height: 12px;
+        width: 12px;
+        margin-left: 8px;
+    }
 }
