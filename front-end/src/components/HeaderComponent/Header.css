@@ -13,10 +13,18 @@
     max-width: 170px;
 }
 
-.header__img{
+.header__logo--small{
     width: 30%;
     max-width: 80px;
     max-height: 60px;
+}
+
+.header__logo-img{
+    width: 100%;
+}
+
+.header__img{
+    height: 100%;
 }
 
 .header__item{

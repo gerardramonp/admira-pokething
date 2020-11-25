@@ -63,7 +63,6 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
                       </div>
                       <div className="stats-right">
                         <progress value={stat.base_stat} max="250" className="progressbar">stat.base_stat</progress>
-
                       </div>
                     </div>
                   ))
@@ -73,7 +72,6 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
             </main>
           </div>
         </div>
-
       )}
     </>
 
