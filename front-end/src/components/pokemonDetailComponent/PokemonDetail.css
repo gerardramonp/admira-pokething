@@ -101,6 +101,7 @@ p{
 
 .sprites__item{
     height: 150px;
+    min-width: 140px;
 }
 
 .stats__bars{
@@ -122,6 +123,48 @@ p{
 
 @media only screen and (max-width: 1050px) {
     .pokemon-detail__container{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .pokemon-detail__main{
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail-info__types{
+        justify-content: center;
+    }
+    .detail-main__info{
+        width: 100%;
+    }
+    .title__text{
+        font-size: 22px;
+    }
+    .detail-info__sprites{
+        justify-content: center;
+    }
+    .main__stats{
+        width: 100%;
+        margin-top: 12px;
+    }
+    .stats__bars{
+        width: 80%;
+    }
+    .bars__item{
+        justify-content: center;
+        width: 100%;
+    }
+    .stats-left{
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .stats-right{
+        width: 50%;
+    }
+    .progressbar{
         width: 100%;
     }
 }

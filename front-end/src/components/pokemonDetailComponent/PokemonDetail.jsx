@@ -53,17 +53,21 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
                   {
                   pokemonDetail.stats.map((stat) => (
                     <div className="bars__item">
-                      <span className="stat-label">
-                        <b>{stat.stat.name}</b>
-                        :
-                        {' '}
-                        {stat.base_stat}
-                      </span>
-                      <progress value={stat.base_stat} max="250">stat.base_stat</progress>
+                      <div className="stats-left">
+                        <span className="stat-label">
+                          <b>{stat.stat.name}</b>
+                          :
+                          {' '}
+                          {stat.base_stat}
+                        </span>
+                      </div>
+                      <div className="stats-right">
+                        <progress value={stat.base_stat} max="250" className="progressbar">stat.base_stat</progress>
+
+                      </div>
                     </div>
                   ))
                 }
-
                 </div>
               </section>
             </main>
