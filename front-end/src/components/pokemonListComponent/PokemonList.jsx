@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestPokemons } from '../../redux/actions/pokeActions';
+import { requestPokemons, clearPokemonDetails } from '../../redux/actions/pokeActions';
 import PokemonCard from './PokemonCardComponent/PokemonCard';
 
 import './PokemonList.css';
@@ -12,6 +12,10 @@ function PokemonList({ pokemonList, dispatch }) {
       dispatch(requestPokemons());
     }
   });
+
+  function handleClick() {
+    dispatch(clearPokemonDetails());
+  }
 
   const loadingRender = (
     <div className="loading-container">
@@ -28,7 +32,7 @@ function PokemonList({ pokemonList, dispatch }) {
     <div className="pokemon-list">
       {pokemonList?.length
         && pokemonList.map((currentPokemon) => (
-          <Link to={`/detail/${currentPokemon.id}`} className="link">
+          <Link to={`/detail/${currentPokemon.id}`} className="link" onClick={handleClick}>
             <PokemonCard
               key={currentPokemon.name}
               pokemonData={currentPokemon}
@@ -56,7 +60,6 @@ function PokemonList({ pokemonList, dispatch }) {
             <div className="lines__item" />
             <div className="lines__item" />
           </div>
-
         </div>
       </div>
       <section className="pokemon-list-container">

@@ -28,6 +28,12 @@ function loadPokemonDetailsSuccess(pokemon) {
   };
 }
 
+export function clearPokemonDetails() {
+  return {
+    type: actionTypes.CLEAR_POKEMON_DETAIL,
+  };
+}
+
 export function requestPokemons() {
   return async (dispatch) => {
     dispatch(setLoading());
