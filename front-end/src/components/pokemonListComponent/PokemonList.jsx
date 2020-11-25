@@ -32,9 +32,8 @@ function PokemonList({ pokemonList, dispatch }) {
     <div className="pokemon-list">
       {pokemonList?.length
         && pokemonList.map((currentPokemon) => (
-          <Link to={`/detail/${currentPokemon.id}`} className="link" onClick={handleClick}>
+          <Link to={`/detail/${currentPokemon.id}`} key={currentPokemon.name} className="link" onClick={handleClick}>
             <PokemonCard
-              key={currentPokemon.name}
               pokemonData={currentPokemon}
             />
           </Link>

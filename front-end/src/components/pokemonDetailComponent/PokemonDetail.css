@@ -1,0 +1,38 @@
+.pokemon-detail{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.pokemon-detail__title{
+    margin-bottom: 5px;
+}
+
+.pokemon-detail__main{
+    display: flex;
+    flex-direction: row;   
+}
+
+.detail-main__info{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.detail-info__types{
+    display: flex;
+    flex-direction: row;
+}
+
+.types__type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 20px;
+    color: white;
+    border-radius: 99px;
+    width: 25%;
+    font-size: 14px;
+    margin: 5px 10px;
+}
+
