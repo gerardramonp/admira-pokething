@@ -57,8 +57,11 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
                 {
                   pokemonDetail.stats.map((stat) => (
                     <div className="bars__item">
-                      <span>Stat:</span>
-                      <progress max="100" value={pokemonDetail.stats.coso} />
+                      <span>
+                        {stat.stat.name}
+                        :
+                      </span>
+                      <progress value={stat.baseStat} max="100" />
                     </div>
                   ))
                 }
