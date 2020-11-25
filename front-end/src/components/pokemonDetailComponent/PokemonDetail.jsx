@@ -27,8 +27,8 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
             {' '}
             {pokemonDetail.name}
           </h1>
-          <div className="pokemon-detail__main">
-            <div className="detail-main__info">
+          <main className="pokemon-detail__main">
+            <section className="detail-main__info">
               <div className="detail-info__types">
                 {pokemonDetail.types.map(({ type }) => <span key={type.name} className={`types__type ${type.name}`}>{type.name}</span>)}
               </div>
@@ -49,8 +49,8 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
                   {pokemonDetail.weight}
                 </p>
               </div>
-            </div>
-            <div className="main__stats">
+            </section>
+            <section className="main__stats">
               <h3>Base Stats:</h3>
               <div className="stats__bars">
                 {/* Aqui fer un map per cada stat posar la seva barra */}
@@ -59,8 +59,8 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
                   <progress max="100" value={pokemonDetail.stats.coso} />
                 </div>
               </div>
-            </div>
-          </div>
+            </section>
+          </main>
         </div>
       )}
     </>
