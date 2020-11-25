@@ -1,13 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function PokemonDetail() {
-  return (<div>Detail works</div>);
+function PokemonDetail({ pokemonDetail }) {
+  return (
+    <>
+      <div className="pokemon-detail">
+        <h1>
+          #
+          {' '}
+          {pokemonDetail.id}
+          {' '}
+          -
+          {pokemonDetail.name}
+        </h1>
+      </div>
+    </>
+
+  );
 }
 
 function mapStateToProps({ pokeReducer }) {
   return {
-    pokeData: pokeReducer.pokeData,
+    pokemonDetail: pokeReducer.pokemonDetail,
   };
 }
 

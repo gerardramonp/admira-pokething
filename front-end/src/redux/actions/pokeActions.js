@@ -21,15 +21,35 @@ function loadPokemonsError(error) {
   };
 }
 
-export default function loadPokemons() {
+function loadPokemonDetailsSuccess(pokemon) {
+  return {
+    type: actionTypes.LOAD_POKEMON_DETAIL,
+    pokemon,
+  };
+}
+
+export function loadPokemons() {
   return async (dispatch) => {
     dispatch(setLoading());
     const backEndpoint = '/api/pokemons';
     try {
       const pokemonList = await axios.get(backEndpoint);
       dispatch(loadPokemonsSuccess(pokemonList.data));
-    } catch (error) {
-      dispatch(loadPokemonsError(error));
+    } catch (listError) {
+      dispatch(loadPokemonsError(listError));
+    }
+  };
+}
+
+export function loadPokemonById(pokemonId) {
+  return async (dispatch) => {
+    dispatch(setLoading());
+    const backEndpoint = `api/pokemons/details/${pokemonId}`;
+    try {
+      const pokemon = await axios.get(backEndpoint);
+      dispatch;
+    } catch (detailError) {
+      dispatch(loadPokemonsError(detailError));
     }
   };
 }
