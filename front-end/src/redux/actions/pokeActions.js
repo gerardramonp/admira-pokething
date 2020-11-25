@@ -28,7 +28,7 @@ function loadPokemonDetailsSuccess(pokemon) {
   };
 }
 
-export function loadPokemons() {
+export function requestPokemons() {
   return async (dispatch) => {
     dispatch(setLoading());
     const backEndpoint = '/api/pokemons';

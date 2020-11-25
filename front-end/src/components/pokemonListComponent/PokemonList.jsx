@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import requestPokemons from '../../redux/actions/pokeActions';
+import { requestPokemons } from '../../redux/actions/pokeActions';
 import PokemonCard from './PokemonCardComponent/PokemonCard';
 
 import './PokemonList.css';
