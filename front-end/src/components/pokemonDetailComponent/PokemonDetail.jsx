@@ -54,10 +54,15 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
               <h3>Base Stats:</h3>
               <div className="stats__bars">
                 {/* Aqui fer un map per cada stat posar la seva barra */}
-                <div className="bars__item">
-                  <span>Stat:</span>
-                  <progress max="100" value={pokemonDetail.stats.coso} />
-                </div>
+                {
+                  pokemonDetail.stats.map((stat) => (
+                    <div className="bars__item">
+                      <span>Stat:</span>
+                      <progress max="100" value={pokemonDetail.stats.coso} />
+                    </div>
+                  ))
+                }
+
               </div>
             </section>
           </main>
