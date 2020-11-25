@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { loadPokemonById } from '../../redux/actions/pokeActions';
 
-function PokemonDetail({ pokemonDetail }) {
+function PokemonDetail({ pokemonDetail, dispatch }) {
+  const { pokemonId } = useParams();
+  useEffect(() => {
+    if (!pokemonDetail?.name) {
+      dispatch(loadPokemonById(pokemonId));
+    }
+  }, [pokemonDetail?.name]);
+
   return (
     <>
+      { pokemonDetail && (
       <div className="pokemon-detail">
         <h1>
           #
@@ -14,6 +24,7 @@ function PokemonDetail({ pokemonDetail }) {
           {pokemonDetail.name}
         </h1>
       </div>
+      )}
     </>
 
   );

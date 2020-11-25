@@ -44,10 +44,10 @@ export function requestPokemons() {
 export function loadPokemonById(pokemonId) {
   return async (dispatch) => {
     dispatch(setLoading());
-    const backEndpoint = `api/pokemons/details/${pokemonId}`;
+    const backEndpoint = `/api/pokemons/details/${pokemonId}`;
     try {
       const pokemon = await axios.get(backEndpoint);
-      dispatch(loadPokemonDetailsSuccess(pokemon));
+      dispatch(loadPokemonDetailsSuccess(pokemon.data));
     } catch (detailError) {
       dispatch(loadPokemonsError(detailError));
     }
