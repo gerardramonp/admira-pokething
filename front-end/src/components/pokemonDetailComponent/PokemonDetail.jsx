@@ -5,7 +5,7 @@ import { loadPokemonById } from '../../redux/actions/pokeActions';
 
 import './PokemonDetail.css';
 
-function PokemonDetail({ pokemonDetail, dispatch }) {
+function PokemonDetail({ pokemonDetail, loading, dispatch }) {
   const { pokemonId } = useParams();
   useEffect(() => {
     if (!pokemonDetail?.name) {
@@ -15,6 +15,7 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
 
   return (
     <>
+      {loading && <p>Loading...</p>}
       { pokemonDetail && pokemonDetail?.id && (
         <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
           <div className="pokemon-detail__container">
