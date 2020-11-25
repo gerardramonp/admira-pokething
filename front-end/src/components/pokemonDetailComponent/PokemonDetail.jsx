@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { loadPokemonById } from '../../redux/actions/pokeActions';
+import Loading from '../LoadingComponent/Loading';
 
 import './PokemonDetail.css';
 
@@ -15,7 +16,13 @@ function PokemonDetail({ pokemonDetail, loading, dispatch }) {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading
+      && (
+      <div className="detail__loading">
+
+        <Loading />
+      </div>
+      )}
       { pokemonDetail && pokemonDetail?.id && (
         <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
           <div className="pokemon-detail__container">
@@ -82,6 +89,7 @@ function PokemonDetail({ pokemonDetail, loading, dispatch }) {
 function mapStateToProps({ pokeReducer }) {
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
+    loading: pokeReducer.loading,
   };
 }
 

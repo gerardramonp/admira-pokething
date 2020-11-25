@@ -6,8 +6,9 @@ p{
     margin: 5px 0;
 }
 
-.flex-separator{
-    flex:1
+.detail__loading{
+    font-size: 22px;
+    margin-top: 64px;
 }
 
 .pokemon-detail__container{
