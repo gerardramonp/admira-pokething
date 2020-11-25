@@ -47,7 +47,7 @@ export function loadPokemonById(pokemonId) {
     const backEndpoint = `api/pokemons/details/${pokemonId}`;
     try {
       const pokemon = await axios.get(backEndpoint);
-      dispatch;
+      dispatch(loadPokemonDetailsSuccess(pokemon));
     } catch (detailError) {
       dispatch(loadPokemonsError(detailError));
     }
