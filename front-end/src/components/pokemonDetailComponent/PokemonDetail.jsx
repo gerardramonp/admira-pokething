@@ -15,7 +15,7 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
 
   return (
     <>
-      { pokemonDetail && pokemonDetail?.name && (
+      { pokemonDetail && pokemonDetail?.id && (
         <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
           {console.log(pokemonDetail)}
           <h1 className="pokemon-detail__title">
@@ -32,8 +32,34 @@ function PokemonDetail({ pokemonDetail, dispatch }) {
               <div className="detail-info__types">
                 {pokemonDetail.types.map(({ type }) => <span key={type.name} className={`types__type ${type.name}`}>{type.name}</span>)}
               </div>
+              <div className="detail-info__sprites">
+                <img src={pokemonDetail.sprites.default__front} alt="front-sprite" className="sprites__item" />
+                <img src={pokemonDetail.sprites.default__back} alt="back-sprite" className="sprites__item" />
+              </div>
+              <h4>Other info:</h4>
+              <div className="detail-info__other">
+                <p>
+                  Height:
+                  {' '}
+                  {pokemonDetail.height}
+                </p>
+                <p className="other__item">
+                  Weight:
+                  {' '}
+                  {pokemonDetail.weight}
+                </p>
+              </div>
             </div>
-            <div className="main__stats" />
+            <div className="main__stats">
+              <h3>Base Stats:</h3>
+              <div className="stats__bars">
+                {/* Aqui fer un map per cada stat posar la seva barra */}
+                <div className="bars__item">
+                  <span>Stat:</span>
+                  <progress max="100" value={pokemonDetail.stats.coso} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
