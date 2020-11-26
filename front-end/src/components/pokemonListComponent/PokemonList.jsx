@@ -56,9 +56,9 @@ function PokemonList({
         <div className="title__screen">
           {loading
             ? (
-              <p className="screen__text">
+              <div className="screen__text">
                 <Loading />
-              </p>
+              </div>
             )
             : (
               <input

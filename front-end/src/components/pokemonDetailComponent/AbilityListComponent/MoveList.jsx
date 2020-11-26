@@ -19,7 +19,7 @@ function MoveList({
     <div className="move-list">
       {loadingMoves && <Loading />}
       {movesWithType?.length > 0 && movesWithType.map((move) => (
-        <MoveCard moveType={move.type.name} moveName={move.name} />
+        <MoveCard moveType={move.type.name} moveName={move.name} key={move.name} />
       ))}
     </div>
   );
