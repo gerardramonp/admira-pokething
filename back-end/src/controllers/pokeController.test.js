@@ -1,4 +1,3 @@
-const pokeModel = require('../models/pokeModel');
 const PokeModel = require('../models/pokeModel');
 const pokeController = require('./pokeController')(PokeModel);
 

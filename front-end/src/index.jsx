@@ -7,7 +7,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/configureStore';
 
-const store = configureStore();
+const initialState = {
+  pokeReducer: {
+    displayPokemonList: [],
+  },
+};
+
+const store = configureStore(initialState);
 
 ReactDOM.render(
   <React.StrictMode>

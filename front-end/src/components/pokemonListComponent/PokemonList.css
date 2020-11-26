@@ -16,8 +16,8 @@
     align-items: center;
     background: #DEDEDE;
     width: 30%;
-    max-width: 320px;
-    min-width: 175px;
+    max-width: 400px;
+    min-width: 255px;
     border-radius: 10px;
     border: 0.5px solid black;
     padding: 12px 24px;
@@ -56,6 +56,18 @@
     font-size: 22px;
     padding: 12px;
     margin: 0;
+}
+
+.screen__input{
+    outline: none;
+    border: none;
+    background: none;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 22px;
+    padding: 12px;
+    margin: 0;
+    width: 100%;
 }
 
 .title__bottom{

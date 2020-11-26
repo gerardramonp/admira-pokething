@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const debug = require('debug')('app');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const PokeModel = require('./src/models/pokeModel');
 const pokeRouter = require('./src/routes/pokeRouter')(PokeModel);
@@ -14,8 +15,9 @@ mongoose.connect('mongodb+srv://admin:admin@admira-pokecluster.yxysw.mongodb.net
   useUnifiedTopology: true,
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json({ limit: '10mb', extended: true }));
 
 // Routes config
 app.use('/api/pokemons', pokeRouter);
