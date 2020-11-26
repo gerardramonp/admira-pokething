@@ -18,6 +18,10 @@ function PokemonList({ pokemonList, loading, dispatch }) {
     dispatch(clearPokemonDetails());
   }
 
+  function handleChange({ target }) {
+    const { value } = target;
+  }
+
   const pokemonListRender = (
     <div className="pokemon-list">
       {pokemonList?.length
@@ -39,9 +43,21 @@ function PokemonList({ pokemonList, loading, dispatch }) {
           <div className="title__button" />
         </div>
         <div className="title__screen">
-          <p className="screen__text">
-            {loading ? <Loading /> : 'Search pokemon...'}
-          </p>
+          {loading
+            ? (
+              <p className="screen__text">
+                <Loading />
+              </p>
+            )
+            : (
+              <input
+                type="text"
+                placeholder="Search pokemon..."
+                className="screen__input"
+                onChange={(event) => { handleChange(event); }}
+              />
+            ) }
+
         </div>
         <div className="title__bottom">
           <div className="title__button title__button--big" />

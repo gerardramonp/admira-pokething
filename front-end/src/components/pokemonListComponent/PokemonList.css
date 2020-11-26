@@ -58,6 +58,18 @@
     margin: 0;
 }
 
+.screen__input{
+    outline: none;
+    border: none;
+    background: none;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 22px;
+    padding: 12px;
+    margin: 0;
+    width: 100%;
+}
+
 .title__bottom{
     display: flex;
     justify-content: space-between;
