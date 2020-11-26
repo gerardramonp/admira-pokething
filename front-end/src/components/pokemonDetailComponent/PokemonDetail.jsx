@@ -28,8 +28,8 @@ function PokemonDetail({
       </div>
       )}
       { pokemonDetail && pokemonDetail?.id && (
-        <div className="pokemon-detail">
-          <section className={`pokemon-detail__container bg-${pokemonDetail.types[0].type.name}`}>
+        <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
+          <section className="pokemon-detail__container">
             <div className="pokemon-detail__title">
               <Link to="/">
                 <img src="https://trello-attachments.s3.amazonaws.com/5f7f173f3f927d440950a925/5fbe91ca731763484cbf700b/42db221f6e67c04903a423a3e6e41975/back-button.png" alt="back-to-list" className="back" />
@@ -81,15 +81,18 @@ function PokemonDetail({
             </main>
           </section>
           <section className="details__moves">
-            <h2>
-              {pokemonDetail.name}
-              {' '}
-              {' '}
-              move list
-            </h2>
-            <div className="poke-line" />
+            <div className="moves__container">
 
-            <MoveList rawMoves={pokemonDetail.moves} />
+              <h2>
+                {pokemonDetail.name}
+                {' '}
+                {' '}
+                move list
+              </h2>
+              <div className="poke-line" />
+
+              <MoveList rawMoves={pokemonDetail.moves} />
+            </div>
           </section>
         </div>
       )}

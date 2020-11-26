@@ -125,7 +125,13 @@ p{
 }
 
 .details__moves{
+    width: 100%;
+    background-color: whitesmoke;
+}
+.moves__container{
     padding: 24px;
+    width: 60%;
+    margin: auto;
 }
 
 h2{
@@ -135,6 +141,9 @@ h2{
 
 @media only screen and (max-width: 1050px) {
     .pokemon-detail__container{
+        width: 100%;
+    }
+    .moves__container{
         width: 100%;
     }
 }
