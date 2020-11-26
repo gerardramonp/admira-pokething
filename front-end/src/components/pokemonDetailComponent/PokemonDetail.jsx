@@ -23,7 +23,6 @@ function PokemonDetail({
       {loading
       && (
       <div className="detail__loading">
-
         <Loading />
       </div>
       )}
@@ -82,7 +81,6 @@ function PokemonDetail({
           </section>
           <section className="details__moves">
             <div className="moves__container">
-
               <h2>
                 {pokemonDetail.name}
                 {' '}
@@ -90,7 +88,6 @@ function PokemonDetail({
                 move list
               </h2>
               <div className="poke-line" />
-
               <MoveList rawMoves={pokemonDetail.moves} />
             </div>
           </section>

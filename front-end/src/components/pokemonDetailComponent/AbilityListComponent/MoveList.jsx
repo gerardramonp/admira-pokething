@@ -26,7 +26,6 @@ function MoveList({
 }
 
 function mapStateToProps({ pokeReducer }) {
-  debugger;
   return {
     loadingMoves: pokeReducer.loadingMoves,
     movesWithType: pokeReducer.movesWithType,
