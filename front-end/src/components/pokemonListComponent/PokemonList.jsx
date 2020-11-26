@@ -20,6 +20,7 @@ function PokemonList({
 
   function handleClick() {
     dispatch(clearPokemonDetails());
+    dispatch(fillDisplayPokemonList());
   }
 
   function handleChange({ target }) {
