@@ -7,6 +7,12 @@ function setLoading() {
   };
 }
 
+function setLoadingMoves() {
+  return {
+    type: actionTypes.SET_LOADING_MOVES,
+  };
+}
+
 function loadPokemonsSuccess(pokemonList) {
   return {
     type: actionTypes.LOAD_POKEMONS,
@@ -56,6 +62,25 @@ export function loadPokemonById(pokemonId) {
       dispatch(loadPokemonDetailsSuccess(pokemon.data));
     } catch (detailError) {
       dispatch(loadPokemonsError(detailError));
+    }
+  };
+}
+
+function moveTypesSuccess(movesWithType) {
+  return {
+    type: actionTypes.LOAD_MOVE_TYPES,
+    movesWithType,
+  };
+}
+
+export function loadMoveTypes(moves) {
+  return async (dispatch) => {
+    const backEndpoint = '/api/pokemons/moves';
+    try {
+      const movesWithType = await axios.post(backEndpoint, { moves });
+      dispatch(moveTypesSuccess(movesWithType));
+    } catch (movesError) {
+      dispatch(loadPokemonsError(movesError));
     }
   };
 }

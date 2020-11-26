@@ -1,7 +1,23 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-await-in-loop */
 /* eslint-disable camelcase */ // <-- for destructuring later
 
 const debug = require('debug')('app:controller');
 const axios = require('axios');
+
+async function loadDetailedMoves(rawMoves) {
+  let detailedMoves = [];
+  let moveEndpoint = '';
+
+  for (let i = 0; i < rawMoves.length; i++) {
+    const { move } = rawMoves[i];
+    moveEndpoint = move.url;
+    const { data: { name, type } } = await axios.get(moveEndpoint);
+    detailedMoves = [...detailedMoves, { name, type }];
+  }
+
+  return detailedMoves;
+}
 
 function pokeController(PokeModel) {
   function getPokemons(req, res) {
@@ -38,7 +54,25 @@ function pokeController(PokeModel) {
       res.send(detailError);
     }
   }
-  return { getPokemons, getPokemonById };
+
+  async function getMovesTypes(req, res) {
+    const { moves } = req.body;
+
+    let detailedMoves = [];
+    let moveEndpoint = '';
+    try {
+      for (let i = 0; i < moves.length; i++) {
+        const { move } = moves[i];
+        moveEndpoint = move.url;
+        const { data: { name, type } } = await axios.get(moveEndpoint);
+        detailedMoves = [...detailedMoves, { name, type }];
+      }
+      res.json(detailedMoves);
+    } catch (error) {
+      res.send(error);
+    }
+  }
+  return { getPokemons, getPokemonById, getMovesTypes };
 }
 
 module.exports = pokeController;

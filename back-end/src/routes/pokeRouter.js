@@ -10,6 +10,8 @@ function pokeRouter(PokeModel) {
 
   router.route('/details/:pokemonId').get(controller.getPokemonById);
 
+  router.route('/moves').post(controller.getMovesTypes);
+
   return router;
 }
 

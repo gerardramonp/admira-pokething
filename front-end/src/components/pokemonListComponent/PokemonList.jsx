@@ -28,7 +28,6 @@ function PokemonList({ pokemonList, loading, dispatch }) {
             />
           </Link>
         ))}
-
     </div>
   );
 

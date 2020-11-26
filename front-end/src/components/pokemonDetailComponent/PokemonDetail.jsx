@@ -1,18 +1,28 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { loadPokemonById } from '../../redux/actions/pokeActions';
+import { loadPokemonById, loadMoveTypes } from '../../redux/actions/pokeActions';
 import Loading from '../LoadingComponent/Loading';
 
 import './PokemonDetail.css';
 
-function PokemonDetail({ pokemonDetail, loading, dispatch }) {
+function PokemonDetail({
+  pokemonDetail, loading, movesWithType, dispatch,
+}) {
   const { pokemonId } = useParams();
+
   useEffect(() => {
     if (!pokemonDetail?.name) {
       dispatch(loadPokemonById(pokemonId));
     }
   }, [pokemonDetail?.name]);
+
+  useEffect(() => {
+    if (pokemonDetail?.name && !movesWithType?.length) {
+      debugger;
+      dispatch(loadMoveTypes(pokemonDetail.moves));
+    }
+  });
 
   return (
     <>
@@ -87,9 +97,12 @@ function PokemonDetail({ pokemonDetail, loading, dispatch }) {
 }
 
 function mapStateToProps({ pokeReducer }) {
+  debugger;
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
     loading: pokeReducer.loading,
+    loadingMoves: pokeReducer.loadingMoves,
+    movesWithType: pokeReducer.movesWithType,
   };
 }
 
