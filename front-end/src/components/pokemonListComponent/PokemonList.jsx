@@ -26,7 +26,7 @@ function PokemonList({
   function handleChange({ target }) {
     const { value } = target;
     if (value.length >= 3) {
-      dispatch(filterPokemonByName(value));
+      dispatch(filterPokemonByName(value.toLowerCase()));
     } else {
       dispatch(fillDisplayPokemonList());
     }
