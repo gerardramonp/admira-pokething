@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { loadPokemonById } from '../../redux/actions/pokeActions';
 import Loading from '../LoadingComponent/Loading';
-import MoveList from './AbilityListComponent/MoveList';
+import MoveList from './MoveListComponent/MoveList';
 
 import './PokemonDetail.css';
 
 function PokemonDetail({
-  pokemonDetail, loading, dispatch,
+  pokemonDetail, loading, error, dispatch,
 }) {
   const { pokemonId } = useParams();
 
@@ -26,6 +26,7 @@ function PokemonDetail({
         <Loading />
       </div>
       )}
+      {error && <h3 className="error__msg">There has been an error loading the pokemon</h3>}
       { pokemonDetail && pokemonDetail?.id && (
         <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
           <section className="pokemon-detail__container">
@@ -101,6 +102,7 @@ function mapStateToProps({ pokeReducer }) {
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
     loading: pokeReducer.loading,
+    error: pokeReducer.error,
   };
 }
 
