@@ -1,5 +1,6 @@
 .pokemon-detail{
     display: flex;
+    flex-direction: column;
 }
 
 p{
@@ -53,7 +54,7 @@ p{
 }
 
 .poke-line{
-    height: 5px;
+    height: 8px;
     width: 100%;
     background-color: #FFCE31;
     border-radius: 99px;
@@ -120,6 +121,10 @@ p{
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+
+h2{
+    text-align: center;
 }
 
 @media only screen and (max-width: 1050px) {

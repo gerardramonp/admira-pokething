@@ -28,8 +28,8 @@ function PokemonDetail({
       </div>
       )}
       { pokemonDetail && pokemonDetail?.id && (
-        <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
-          <div className="pokemon-detail__container">
+        <div className="pokemon-detail">
+          <section className={`pokemon-detail__container bg-${pokemonDetail.types[0].type.name}`}>
             <div className="pokemon-detail__title">
               <Link to="/">
                 <img src="https://trello-attachments.s3.amazonaws.com/5f7f173f3f927d440950a925/5fbe91ca731763484cbf700b/42db221f6e67c04903a423a3e6e41975/back-button.png" alt="back-to-list" className="back" />
@@ -59,7 +59,6 @@ function PokemonDetail({
               <section className="main__stats">
                 <h3 className="pokemon-detail__subtitle">Base Stats:</h3>
                 <div className="stats__bars">
-                  {/* Aqui fer un map per cada stat posar la seva barra */}
                   {
                   pokemonDetail.stats.map((stat) => (
                     <div className="bars__item">
@@ -80,14 +79,19 @@ function PokemonDetail({
                 </div>
               </section>
             </main>
-            <section className="details__moves">
-              <MoveList rawMoves={pokemonDetail.moves} />
-            </section>
-          </div>
+          </section>
+          <section className="details__moves">
+            <h2>
+              {pokemonDetail.name}
+              {' '}
+              {' '}
+              move list
+            </h2>
+            <MoveList rawMoves={pokemonDetail.moves} />
+          </section>
         </div>
       )}
     </>
-
   );
 }
 

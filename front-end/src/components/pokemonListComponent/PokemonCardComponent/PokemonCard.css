@@ -4,7 +4,7 @@
     align-items: center;
     padding: 12px 24px;
     margin: 12px;
-    width: 175px;
+    width: 200px;
     border-radius: 10px;
     position: relative;
     z-index: 0;
@@ -33,7 +33,7 @@
 .info__types{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     width: 45%;
 }
@@ -46,7 +46,7 @@
     background-color: rgba(245, 245, 245, 0.45);
     color: white;
     border-radius: 99px;
-    width: 25%;
+    width: 75%;
     font-size: 14px;
     margin: 5px 0;
 }
