@@ -4,6 +4,15 @@ This is a project built for Admira as a part of the hiring process.
 
 The App is a full responsive Pokédex Web App which displays a list of the first 151 pokemons and their details.
 
+# To run the project (scripts)
+After you clone the project go inside each folder [front-end, back-end] and run the command **npm install**
+
+The scripts you can run with npm (or yarn) are:
+- **npm start** (to start the server): Start both front & back
+- **npm test** (to see unit & component tests): In each separated folder [front-end, back-end]
+
+<br>
+
 # Tech Stack & Libraries
 
 ## MERN Stack:
@@ -17,6 +26,7 @@ The App is a full responsive Pokédex Web App which displays a list of the first
 
 ## Unit & Component testing:
 - **Jest** (More than 50 tests)
+- You can run the test with **npm test** (inside each folder [front-end, back-end])
 
 <br>
 
@@ -40,7 +50,6 @@ The App is a full responsive Pokédex Web App which displays a list of the first
 
 - Some of the features (**Pokemon moves** for example) require a long time for the API to respond. Pokemons with lots of moves can take longer than 30s (you can try it with Caterpie for example for faster results).
 
-- I'd be really happy to recieve any kind of feedback, feel free to comment!!!
+- I'd be really happy to recieve any kind of feedback, feel free to comment :grin: !!
 
-
-Gerard :D
+Gerard
