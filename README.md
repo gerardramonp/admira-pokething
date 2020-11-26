@@ -5,7 +5,7 @@ This is a project built for Admira as a part of the hiring process.
 The App is a full responsive Pokédex Web App which displays a list of the first 151 pokemons and their details.
 
 # To run the project (scripts)
-After you clone the project go inside each folder [front-end, back-end] and run the command **npm install**
+After you clone the project go inside each folder **[front-end, back-end]** and run the command **npm install** on both
 
 The scripts you can run with npm (or yarn) are:
 - **npm start** (to start the server): Start both front & back
