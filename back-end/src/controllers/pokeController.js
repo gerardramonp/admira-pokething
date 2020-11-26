@@ -2,7 +2,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable camelcase */ // <-- for destructuring later
 
-const debug = require('debug')('app:controller');
 const axios = require('axios');
 
 function pokeController(PokeModel) {
