@@ -50,6 +50,6 @@ The scripts you can run with npm (or yarn) are:
 
 - Some of the features (**Pokemon moves** for example) require a long time for the API to respond. Pokemons with lots of moves can take longer than 30s (you can try it with Caterpie for example for faster results).
 
-- I'd be really happy to recieve any kind of feedback, feel free to comment :grin: !!
+- I'd be really happy and gratefull to recieve any kind of feedback, feel free to comment :grin: !!
 
 Gerard
