@@ -36,8 +36,11 @@ The App is a full responsive Pokédex Web App which displays a list of the first
 
 # Other info
 
-- I built this project in free time and took me around 8-9h.
-
 - The App combines using a personal DB (hosted in Atlas from MongoDB) and the Pokemon API (https://pokeapi.co/) for loading all the data.
 
 - Some of the features (**Pokemon moves** for example) require a long time for the API to respond. Pokemons with lots of moves can take longer than 30s (you can try it with Caterpie for example for faster results).
+
+- I'd be really happy to recieve any kind of feedback, feel free to comment!!!
+
+
+Gerard :D
