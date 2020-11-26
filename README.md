@@ -26,7 +26,7 @@ The scripts you can run with npm (or yarn) are:
 
 ## Unit & Component testing:
 - **Jest** (More than 50 tests)
-- You can run the test with **npm test** (inside each folder [front-end, back-end])
+- You can run the tests with **npm test** (inside each folder [front-end, back-end])
 
 <br>
 
