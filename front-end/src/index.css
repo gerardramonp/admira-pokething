@@ -66,6 +66,9 @@ code {
 .fairy {
     background-color: #f0b6bcf1;
 }
+.dark{
+    background-color: #705848f1;
+}
 
 .bg-normal {
     background-color: #a8a8789d;
@@ -117,4 +120,7 @@ code {
 }
 .bg-fairy {
     background-color: #f0b6bc9d;
+}
+.bg-dark{
+    background-color: #7058489d;
 }

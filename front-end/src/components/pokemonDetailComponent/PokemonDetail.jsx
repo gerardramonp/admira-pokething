@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { loadPokemonById, loadMoveTypes } from '../../redux/actions/pokeActions';
+import { loadPokemonById } from '../../redux/actions/pokeActions';
 import Loading from '../LoadingComponent/Loading';
+import MoveList from './AbilityListComponent/MoveList';
 
 import './PokemonDetail.css';
 
 function PokemonDetail({
-  pokemonDetail, loading, movesWithType, dispatch,
+  pokemonDetail, loading, dispatch,
 }) {
   const { pokemonId } = useParams();
 
@@ -16,13 +17,6 @@ function PokemonDetail({
       dispatch(loadPokemonById(pokemonId));
     }
   }, [pokemonDetail?.name]);
-
-  useEffect(() => {
-    if (pokemonDetail?.name && !movesWithType?.length) {
-      debugger;
-      dispatch(loadMoveTypes(pokemonDetail.moves));
-    }
-  });
 
   return (
     <>
@@ -36,8 +30,6 @@ function PokemonDetail({
       { pokemonDetail && pokemonDetail?.id && (
         <div className={`pokemon-detail bg-${pokemonDetail.types[0].type.name}`}>
           <div className="pokemon-detail__container">
-
-            {console.log(pokemonDetail)}
             <div className="pokemon-detail__title">
               <Link to="/">
                 <img src="https://trello-attachments.s3.amazonaws.com/5f7f173f3f927d440950a925/5fbe91ca731763484cbf700b/42db221f6e67c04903a423a3e6e41975/back-button.png" alt="back-to-list" className="back" />
@@ -88,6 +80,9 @@ function PokemonDetail({
                 </div>
               </section>
             </main>
+            <section className="details__moves">
+              <MoveList rawMoves={pokemonDetail.moves} />
+            </section>
           </div>
         </div>
       )}
@@ -97,12 +92,9 @@ function PokemonDetail({
 }
 
 function mapStateToProps({ pokeReducer }) {
-  debugger;
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
     loading: pokeReducer.loading,
-    loadingMoves: pokeReducer.loadingMoves,
-    movesWithType: pokeReducer.movesWithType,
   };
 }
 

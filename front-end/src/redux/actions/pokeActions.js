@@ -75,10 +75,11 @@ function moveTypesSuccess(movesWithType) {
 
 export function loadMoveTypes(moves) {
   return async (dispatch) => {
+    dispatch(setLoadingMoves());
     const backEndpoint = '/api/pokemons/moves';
     try {
       const movesWithType = await axios.post(backEndpoint, { moves });
-      dispatch(moveTypesSuccess(movesWithType));
+      dispatch(moveTypesSuccess(movesWithType.data));
     } catch (movesError) {
       dispatch(loadPokemonsError(movesError));
     }

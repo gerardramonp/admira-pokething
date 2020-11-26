@@ -1,0 +1,10 @@
+.ability-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    width: 110px;
+    border-radius: 10px;
+    margin: 8px;
+}
