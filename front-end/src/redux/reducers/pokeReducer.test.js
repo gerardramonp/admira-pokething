@@ -145,7 +145,11 @@ describe('pokeReducer tests', () => {
 
   test('Should filter pokemons when type is FILTER_POKEMON_LIST', () => {
     const initialState = {
-      pokemonList: [{ name: 'charmander' }, { name: 'charmander' }, { name: 'pikachu' }],
+      pokemonList: [{ name: 'charmander' }, { name: 'charmeleon' }, { name: 'pikachu' }],
     };
+    const pokemonName = 'char';
+    const { displayPokemonList } = pokeReducer(initialState, { type: 'FILTER_POKEMON_LIST', pokemonName });
+
+    expect(displayPokemonList).toEqual([{ name: 'charmander' }, { name: 'charmeleon' }]);
   });
 });
