@@ -3,7 +3,7 @@ import './MoveCard.css';
 
 function MoveCard({ moveType, moveName }) {
   return (
-    <div className={`ability-card ${moveType}`}>
+    <div className={`move-card ${moveType}`}>
       <p>{moveName}</p>
     </div>
   );

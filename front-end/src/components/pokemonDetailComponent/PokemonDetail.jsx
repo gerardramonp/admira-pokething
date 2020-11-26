@@ -87,6 +87,8 @@ function PokemonDetail({
               {' '}
               move list
             </h2>
+            <div className="poke-line" />
+
             <MoveList rawMoves={pokemonDetail.moves} />
           </section>
         </div>
