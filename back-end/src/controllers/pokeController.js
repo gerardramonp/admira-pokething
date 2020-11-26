@@ -5,20 +5,6 @@
 const debug = require('debug')('app:controller');
 const axios = require('axios');
 
-async function loadDetailedMoves(rawMoves) {
-  let detailedMoves = [];
-  let moveEndpoint = '';
-
-  for (let i = 0; i < rawMoves.length; i++) {
-    const { move } = rawMoves[i];
-    moveEndpoint = move.url;
-    const { data: { name, type } } = await axios.get(moveEndpoint);
-    detailedMoves = [...detailedMoves, { name, type }];
-  }
-
-  return detailedMoves;
-}
-
 function pokeController(PokeModel) {
   function getPokemons(req, res) {
     const searchQuery = {};
