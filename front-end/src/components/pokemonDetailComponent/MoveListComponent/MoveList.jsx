@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadMoveTypes } from '../../../redux/actions/pokeActions';
-import MoveCard from './AbilityCardComponent/MoveCard';
+import MoveCard from './MoveCardComponent/MoveCard';
 import Loading from '../../LoadingComponent/Loading';
 
 import './MoveList.css';

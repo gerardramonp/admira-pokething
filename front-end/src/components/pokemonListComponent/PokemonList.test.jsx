@@ -10,9 +10,9 @@ jest.mock('../../redux/actions/pokeActions');
 
 describe('PokemonList Component tests', () => {
   let wrapper = null;
-
+  let store = null;
   const wrapperFactory = (wrapperInitialState) => {
-    const store = configureStore(wrapperInitialState);
+    store = configureStore(wrapperInitialState);
     store.dispatch = jest.fn();
 
     return ({ children }) => (

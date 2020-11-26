@@ -1,8 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { filterPokemonByName, fillDisplayPokemonList } from '../../redux/actions/pokeActions';
+import { loadPokemonById } from '../../redux/actions/pokeActions';
 import configureStore from '../../redux/configureStore';
 import PokemonDetail from './PokemonDetail';
 
@@ -10,9 +10,9 @@ jest.mock('../../redux/actions/pokeActions');
 
 describe('PokemonDetail tests', () => {
   let wrapper = null;
-
+  let store = null;
   const wrapperFactory = (wrapperInitialState) => {
-    const store = configureStore(wrapperInitialState);
+    store = configureStore(wrapperInitialState);
     store.dispatch = jest.fn();
 
     return ({ children }) => (
@@ -29,7 +29,7 @@ describe('PokemonDetail tests', () => {
     wrapper = null;
   });
 
-  it('Should render loading when loading is true', () => {
+  test('Should render loading when loading is true', () => {
     const initialState = {
       pokeReducer: {
         loading: true,
@@ -42,7 +42,7 @@ describe('PokemonDetail tests', () => {
     expect(document.querySelector('.loading-container')).toBeInTheDocument();
   });
 
-  it('Should render error msg when there is an error loading the pokemon', () => {
+  test('Should render error msg when there is an error loading the pokemon', () => {
     const initialState = {
       pokeReducer: {
         error: 'ErrorCode & things',
@@ -56,7 +56,7 @@ describe('PokemonDetail tests', () => {
       .toBe('There has been an error loading the pokemon');
   });
 
-  it('Should render pokemon-detail', () => {
+  test('Should render pokemon-detail', () => {
     const initialState = {
       pokeReducer: {
         pokemonDetail: {
@@ -77,5 +77,30 @@ describe('PokemonDetail tests', () => {
     render(<PokemonDetail />, { wrapper });
 
     expect(document.querySelector('.pokemon-detail')).toBeInTheDocument();
+  });
+
+  describe('UseEffect test', () => {});
+  test('Should dispatch loadPokemonById', () => {
+    const initialState = {
+      pokeReducer: {
+        pokemonDetail: {
+          id: 1,
+          name: 'bulbasaur',
+          types: [{
+            type: {
+              name: 'grass',
+            },
+          }],
+          sprites: { front_default: 'url', back_default: 'url' },
+          stats: [{ stat: { name: 'name' } }],
+        },
+      },
+    };
+
+    wrapper = wrapperFactory(initialState);
+
+    render(<PokemonDetail />, { wrapper });
+
+    expect(store.dispatch).toHaveBeenCalled();
   });
 });

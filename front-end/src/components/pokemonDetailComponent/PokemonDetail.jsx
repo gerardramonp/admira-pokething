@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { loadPokemonById } from '../../redux/actions/pokeActions';
 import Loading from '../LoadingComponent/Loading';
-import MoveList from './AbilityListComponent/MoveList';
+import MoveList from './MoveListComponent/MoveList';
 
 import './PokemonDetail.css';
 
