@@ -40,6 +40,19 @@ export function clearPokemonDetails() {
   };
 }
 
+export function filterPokemonByName(pokemonName) {
+  return {
+    type: actionTypes.FILTER_POKEMON_LIST,
+    pokemonName,
+  };
+}
+
+export function fillDisplayPokemonList() {
+  return {
+    type: actionTypes.FILL_POKEMON_DISPLAY_LIST,
+  };
+}
+
 export function requestPokemons() {
   return async (dispatch) => {
     dispatch(setLoading());

@@ -18,7 +18,7 @@ function MoveList({
   return (
     <div className="move-list">
       {loadingMoves && <Loading />}
-      {movesWithType?.length && movesWithType.map((move) => (
+      {movesWithType?.length > 0 && movesWithType.map((move) => (
         <MoveCard moveType={move.type.name} moveName={move.name} />
       ))}
     </div>

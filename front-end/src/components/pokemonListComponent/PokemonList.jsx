@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestPokemons, clearPokemonDetails } from '../../redux/actions/pokeActions';
+import {
+  requestPokemons, clearPokemonDetails, filterPokemonByName, fillDisplayPokemonList,
+} from '../../redux/actions/pokeActions';
 import PokemonCard from './PokemonCardComponent/PokemonCard';
 import Loading from '../LoadingComponent/Loading';
 
 import './PokemonList.css';
 
-function PokemonList({ pokemonList, loading, dispatch }) {
+function PokemonList({
+  pokemonList, displayPokemonList, loading, dispatch,
+}) {
   useEffect(() => {
     if (!pokemonList?.length) {
       dispatch(requestPokemons());
@@ -20,18 +24,24 @@ function PokemonList({ pokemonList, loading, dispatch }) {
 
   function handleChange({ target }) {
     const { value } = target;
+    if (value.length >= 3) {
+      dispatch(filterPokemonByName(value));
+    } else {
+      dispatch(fillDisplayPokemonList());
+    }
   }
 
   const pokemonListRender = (
     <div className="pokemon-list">
-      {pokemonList?.length
-        && pokemonList.map((currentPokemon) => (
+      {displayPokemonList?.length > 0
+        && displayPokemonList.map((currentPokemon) => (
           <Link to={`/detail/${currentPokemon.id}`} key={currentPokemon.name} className="link" onClick={handleClick}>
             <PokemonCard
               pokemonData={currentPokemon}
             />
           </Link>
         ))}
+      {!displayPokemonList?.length && <h3>A pokemon with that name does not exist</h3>}
     </div>
   );
 
@@ -78,6 +88,7 @@ function PokemonList({ pokemonList, loading, dispatch }) {
 function mapStateToProps({ pokeReducer }) {
   return {
     pokemonList: pokeReducer.pokemonList,
+    displayPokemonList: pokeReducer.displayPokemonList,
     loading: pokeReducer.loading,
   };
 }
