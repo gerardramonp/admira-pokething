@@ -84,4 +84,68 @@ describe('pokeReducer tests', () => {
 
     expect(error).toEqual(errorMessage);
   });
+
+  test('Should set loadingMoves to true when action.type is SET_LOADING_MOVES', () => {
+    const initialState = {
+      pokemonList: [],
+      loading: false,
+      loadingMoves: false,
+    };
+
+    const { loadingMoves } = pokeReducer(initialState,
+      { type: actionTypes.SET_LOADING_MOVES });
+
+    expect(loadingMoves).toBe(true);
+  });
+
+  test('Should reset pokemon details when type is CLEAR_POKEMON_DETAIL', () => {
+    const initialState = {
+      loading: false, pokemonDetail: {}, loadingMoves: false, movesWithType: [], pokemonList: [{ name: 'charmander' }],
+    };
+
+    const newState = pokeReducer(initialState, { type: actionTypes.CLEAR_POKEMON_DETAIL });
+
+    expect(newState).toEqual(initialState);
+  });
+
+  test('Should save pokemon details when type is LOAD_POKEMON_DETAIL', () => {
+    const initialState = {
+      loading: false, pokemonDetail: {}, loadingMoves: false, movesWithType: [], pokemonList: [{ name: 'charmander' }],
+    };
+
+    const pokemon = { name: 'Pikachu' };
+    const { pokemonDetail } = pokeReducer(initialState,
+      { type: actionTypes.LOAD_POKEMON_DETAIL, pokemon });
+
+    expect(pokemonDetail).toEqual(pokemon);
+  });
+
+  test('Should save moves with type when type is LOAD_MOVE_TYPES', () => {
+    const initialState = {
+      loading: false, pokemonDetail: {}, loadingMoves: false, movesWithType: [], pokemonList: [{ name: 'charmander' }],
+    };
+
+    const movesWithTypeMock = [{ move: 'Grow' }];
+    const { movesWithType } = pokeReducer(initialState,
+      { type: actionTypes.LOAD_MOVE_TYPES, movesWithType: movesWithTypeMock });
+
+    expect(movesWithType).toEqual(movesWithTypeMock);
+  });
+
+  test('Should fill pokemonDisplay with pokemonList when type is FILL_POKEMON_DISPLAY_LIST', () => {
+    const initialState = {
+      loading: false, pokemonDetail: {}, loadingMoves: false, movesWithType: [], pokemonList: [{ name: 'charmander' }],
+    };
+
+    const { displayPokemonList } = pokeReducer(initialState,
+      { type: actionTypes.FILL_POKEMON_DISPLAY_LIST });
+
+    expect(displayPokemonList).toEqual(initialState.pokemonList);
+  });
+
+  test('Should filter pokemons when type is FILTER_POKEMON_LIST', () => {
+    const initialState = {
+      pokemonList: [{ name: 'charmander' }, { name: 'charmander' }, { name: 'pikachu' }],
+    };
+  });
 });
