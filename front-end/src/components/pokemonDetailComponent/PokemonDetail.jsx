@@ -60,7 +60,7 @@ function PokemonDetail({
                 <div className="stats__bars">
                   {
                   pokemonDetail.stats.map((stat) => (
-                    <div className="bars__item">
+                    <div className="bars__item" key={stat.stat.name}>
                       <div className="stats-left">
                         <span className="stat-label">
                           <b>{stat.stat.name}</b>
