@@ -26,6 +26,14 @@ The App is a full responsive Pokédex Web App which displays a list of the first
 
 <br>
 
+## Other Libraries & Tools:
+- **EsLint** (for good pratices & code styling)
+- **Axios**
+- **react-router-dom**
+- **react-redux**
+
+<br>
+
 # Other info
 
 - I built this project in free time and took me around 8-9h.
