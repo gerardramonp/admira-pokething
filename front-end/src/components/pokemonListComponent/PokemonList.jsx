@@ -42,7 +42,7 @@ function PokemonList({
             />
           </Link>
         ))}
-      {!displayPokemonList?.length && <h3>A pokemon with that name does not exist</h3>}
+      {!displayPokemonList?.length && <h3 className="search__error">A pokemon with that name does not exist</h3>}
     </div>
   );
 
