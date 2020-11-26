@@ -10,7 +10,7 @@ import Loading from '../LoadingComponent/Loading';
 import './PokemonList.css';
 
 function PokemonList({
-  pokemonList, displayPokemonList, loading, dispatch,
+  pokemonList, displayPokemonList, loading, dispatch, error,
 }) {
   useEffect(() => {
     if (!pokemonList?.length) {
@@ -80,6 +80,7 @@ function PokemonList({
         </div>
       </div>
       <section className="pokemon-list-container">
+        {error && <h3 className="load__error">There has been an error while loading pokemons</h3>}
         {pokemonList?.length && pokemonListRender }
       </section>
     </>
@@ -91,6 +92,7 @@ function mapStateToProps({ pokeReducer }) {
     pokemonList: pokeReducer.pokemonList,
     displayPokemonList: pokeReducer.displayPokemonList,
     loading: pokeReducer.loading,
+    error: pokeReducer.error,
   };
 }
 

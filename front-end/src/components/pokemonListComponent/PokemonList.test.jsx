@@ -38,6 +38,15 @@ describe('PokemonList Component tests', () => {
     expect(document.querySelector('.title__container')).toBeInTheDocument();
   });
 
+  test('Should render load__error message when there is an error ', () => {
+    const initialState = { pokeReducer: { error: true } };
+    wrapper = wrapperFactory(initialState);
+
+    render(<PokemonList />, { wrapper });
+
+    expect(document.querySelector('.load__error')).toBeInTheDocument();
+  });
+
   test('Should render loading-container when loading is true ', () => {
     const initialState = { pokeReducer: { loading: true } };
     wrapper = wrapperFactory(initialState);
