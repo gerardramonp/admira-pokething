@@ -12,7 +12,7 @@ function pokeController(PokeModel) {
     };
     PokeModel.find(searchQuery, selectQuery,
       (getError, pokemonList) => (getError ? res.send(getError)
-        : res.json(pokemonList)));
+        : res.json(pokemonList.sort((a, b) => a.id - b.id))));
   }
 
   async function getPokemonById(req, res) {
