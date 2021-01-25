@@ -6,6 +6,7 @@ The App is a full responsive Pokédex Web App which displays a list of the first
 
 # To run the project (scripts)
 After you clone the project go inside each folder **[front-end, back-end]** and run the command **npm install** on both
+**Used node version: 14.15.3**
 
 The scripts you can run with npm (or yarn) are:
 - **npm start** (to start the server): Start both front & back
