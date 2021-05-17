@@ -87,7 +87,7 @@ function PokemonList({
   );
 }
 
-function mapStateToProps({ pokeReducer }) {
+function mapStateToProps({pokeReducer}) {
   return {
     pokemonList: pokeReducer.pokemonList,
     displayPokemonList: pokeReducer.displayPokemonList,
@@ -97,3 +97,4 @@ function mapStateToProps({ pokeReducer }) {
 }
 
 export default connect(mapStateToProps)(PokemonList);
+

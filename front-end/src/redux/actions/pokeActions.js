@@ -20,6 +20,13 @@ function loadPokemonsSuccess(pokemonList) {
   };
 }
 
+function loadPokemonsSuccess(pokemonList) {
+  return {
+    type: 'LOAD_POKEMONS_SUCCESS',
+    pokemonList,
+  };
+}
+
 function loadPokemonsError(error) {
   return {
     type: actionTypes.LOAD_POKEMONS_ERROR,

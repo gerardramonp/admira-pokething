@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { loadPokemonById } from '../../redux/actions/pokeActions';
 import Loading from '../LoadingComponent/Loading';
@@ -11,6 +11,10 @@ function PokemonDetail({
   pokemonDetail, loading, error, dispatch,
 }) {
   const { pokemonId } = useParams();
+
+  // Fent servir useSelector i useDispatch NO PASEM RES PER PROPS NI FEM SERVIR MAPSTATETOPROPS NI CONNECT
+  // const dispatch = useDispatch();
+  // const {pokemonDetail, loading, error} = useSelector(({pokeReducer})=> pokeReducer);
 
   useEffect(() => {
     if (!pokemonDetail?.name) {
